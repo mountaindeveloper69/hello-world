@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharpmap</title> <!-- Możesz zmienić tytuł -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <img src="images/logo.svg" alt="Sharpmap Logo" class="splash-logo">
+    </div>
+
+    <header>
+        <div class="container">
+            <!-- Kontener nagłówka z flexbox -->
+            <div class="header-content">
+                <!-- Logo po lewej -->
+                <div class="logo-left">
+                    <p>Sharpmap</p>
+                </div>
+                
+                <!-- Logo na środku -->
+                <div class="logo-center">
+                    <img src="images/logo.svg" alt="Sharpmap Logo" class="header-logo">
+                </div>
+                
+                <!-- Przycisk po prawej -->
+                <div class="header-button">
+                    <a href="#" class="btn">Try it out!</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="main-title">Your guide to</h1>
+                <div class="hero-content">
+                    <h1 class="subtitle">Every Summit</h1>
+                        <p>Navigate like a pro with 3D maps detailed like never before!</p>
+                        <div class="app-buttons">
+                            <a href="#link-do-google-play" target="_blank"> <!-- Zmień link -->
+                             <img src="images/googleplay.svg" alt="Get it on Google Play"> <!-- Zmień ścieżkę -->
+                        </a>
+                        <a href="#link-do-app-store" target="_blank"> <!-- Zmień link -->
+                            <img src="images/appstore.svg" alt="Download on the App Store"> <!-- Zmień ścieżkę -->
+                         </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Nowa sekcja About Us -->
+        <section class="about-us">
+            <!-- Kontener dla efektu śniegu -->
+            <div class="snow-container"></div>
+            
+            <div class="container">
+                <h2>About us</h2>
+                <p>We are a team of climbers, mountain rescuers, and passionate enthusiasts dedicated to creating a navigation tool with unmatched precision. Our mission is to keep adventurers safe in the mountains while helping them fall even deeper in love with the breathtaking peaks and trails around the world.</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="features-wrapper">
+                    <!-- Obrazek po lewej stronie -->
+                    <div class="features-image">
+                        <img src="images/hand.png" alt="Sharpmap w dłoni">
+                    </div>
+                    
+                    <!-- Tekst po prawej stronie -->
+                    <div class="features-content">
+                        <h2>Explore mountains like never before!</h2>
+                        <p>The Sharpmap app is an essential tool for every mountain lover. With a detailed terrain map, you can:</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>3D terrain map</h3>
+                                <p>The most accurate terrain map that will allow you to know the slope angles and plan your expedition.</p>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>Multiple layers</h3>
+                                <p>Thanks to the different map layers, you will check exactly what you need - no matter if you are going to the mountains in summer or winter.</p>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>Sharpsearch</h3>
+                                <p>Our seamless search engine will help you find mountain locations and learn more about them.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sekcja kontaktowa -->
+    <section class="contact">
+        <div class="container">
+            <h2>Get in touch</h2>
+            
+            <!-- Patronite section - na całą szerokość -->
+            <div class="contact-item support-section full-width">
+                <h3>Want to be a part?</h3>
+                <p>Help us make mountain navigation even better!</p>
+                <a href="#" target="_blank" class="patronite-btn">
+                    Support us on Patronite
+                </a>
+            </div>
+
+            <div class="contact-wrapper two-columns">
+                <!-- Email do kontaktu -->
+                <div class="contact-item">
+                    <h3>Email us</h3>
+                    <a href="mailto:contact@sharpmap.app" class="email-link">contact@sharpmap.app</a>
+                </div>
+                
+                <!-- Social media links -->
+                <div class="contact-item">
+                    <h3>Follow us</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank" class="social-link">
+                            <img src="images/facebook.svg" alt="Facebook" class="social-icon">
+                            <span>Facebook</span>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <img src="images/instagram.svg" alt="Instagram" class="social-icon">
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Twoja Firma. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- Skrypt do animacji śniegu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const snowContainer = document.querySelector('.snow-container');
+            const aboutUsSection = document.querySelector('.about-us');
+            
+            // Funkcja do tworzenia płatka śniegu (piksela)
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                
+                // Losowe pozycjonowanie w poziomie
+                const startPositionX = Math.random() * 100;
+                
+                // Losowa wielkość (między 1px a 3px)
+                const size = Math.random() * 2 + 1;
+                
+                // Losowa prędkość opadania
+                const fallDuration = Math.random() * 5 + 5; // 5-10 sekund
+                
+                // Ustawienie stylów płatka
+                snowflake.style.left = startPositionX + '%';
+                snowflake.style.width = size + 'px';
+                snowflake.style.height = size + 'px';
+                snowflake.style.opacity = Math.random() * 0.6 + 0.3; // 0.3-0.9
+                snowflake.style.animationDuration = fallDuration + 's';
+                
+                // Dodanie płatka do kontenera
+                snowContainer.appendChild(snowflake);
+                
+                // Usunięcie płatka po zakończeniu animacji
+                setTimeout(() => {
+                    snowflake.remove();
+                }, fallDuration * 1000);
+            }
+            
+            // Funkcja do inicjalizacji śniegu
+            function initSnow() {
+                // Dostosowanie pozycji kontenera śniegu
+                const aboutUsRect = aboutUsSection.getBoundingClientRect();
+                snowContainer.style.height = aboutUsRect.height + 'px';
+                
+                // Tworzenie płatków w losowych odstępach czasu
+                setInterval(createSnowflake, 100); // Nowy płatek co 100ms
+                
+                // Początkowe utworzenie kilku płatków
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(createSnowflake, i * 100);
+                }
+            }
+            
+            // Inicjalizacja śniegu po załadowaniu strony
+            initSnow();
+        });
+    </script>
+    
+    <!-- Skrypt do obsługi splash screena -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Zamiast usuwać splash screen, zmieniamy jego z-index i visibility
+            setTimeout(function() {
+                const splashScreen = document.querySelector('.splash-screen');
+                if (splashScreen) {
+                    // Splash screen zostanie ukryty, ale nadal będzie w DOM, aby nie przerywać animacji logo
+                    setTimeout(function() {
+                        splashScreen.style.zIndex = '-1';
+                        splashScreen.style.visibility = 'hidden';
+                    }, 1500);
+                    
+                    // Usuwamy splash screen dopiero po zakończeniu wszystkich animacji
+                    setTimeout(function() {
+                        splashScreen.remove();
+                    }, 3000);
+                }
+            }, 2500);
+        });
+    </script>
+</body>
+</html> 

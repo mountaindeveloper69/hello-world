@@ -1,0 +1,760 @@
+/* Początkowy plik CSS - na razie pusty */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+/* Podstawowe resetowanie stylów */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Alata', sans-serif; /* Ustawienie Alata jako domyślnej czcionki */
+    /* Możemy tu dodać domyślny kolor tekstu i tła, np.: */
+    /* color: #333; */
+    /* background-color: #fff; */
+}
+
+.container {
+    /* Klasa pomocnicza do centrowania treści i ograniczenia szerokości */
+    max-width: 1140px; /* Przykładowa szerokość dla desktop */
+    margin: 0 auto; /* Centrowanie */
+    padding: 0 15px; /* Odstępy po bokach dla mniejszych ekranów */
+}
+
+/* --- Header Styles --- */
+header {
+    position: absolute; /* Wyjmujemy header z normalnego przepływu */
+    top: 0;
+    left: 0;
+    width: 100%; /* Header zajmuje całą szerokość */
+    z-index: 10; /* Upewniamy się, że header jest na wierzchu */
+    background-color: white; /* Białe tło zamiast transparent */
+    padding: 10px 0; /* Zmniejszony o połowę odstęp góra/dół dla header'a */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtelny cień dla odróżnienia od tła */
+}
+
+/* Kontener nagłówka z flexbox */
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Elementy po bokach */
+    align-items: center; /* Wyśrodkowanie w pionie */
+    position: relative; /* Dla pozycjonowania logo na środku */
+}
+
+/* Logo po lewej */
+.logo-left p {
+    font-size: 18px; /* Zmniejszony rozmiar czcionki */
+    font-weight: bold;
+    /* color: #000; */ /* Dostosuj kolor */
+}
+
+/* Logo na środku - pozycja absolutna */
+.logo-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Styl przycisku w nagłówku */
+.header-button .btn {
+    display: inline-block;
+    background-color: #2a3a7e; /* Przywrócenie oryginalnego koloru */
+    color: white;
+    font-size: 14px; /* Zmniejszony rozmiar czcionki */
+    font-weight: 600;
+    padding: 8px 16px; /* Zmniejszony padding przycisku */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.header-button .btn:hover {
+    background-color: #1e2b5e; /* Przywrócenie oryginalnego ciemniejszego odcienia */
+}
+
+/* Responsywność nagłówka */
+@media (max-width: 768px) {
+    .header-content {
+        justify-content: space-between; /* Wyraźne określenie, że elementy mają być rozłożone po bokach */
+        align-items: center; /* Wyśrodkowanie w pionie */
+    }
+    
+    /* Zmniejszam lewy tekst */
+    .logo-left p {
+        font-size: 14px;
+    }
+    
+    /* Zmniejszam logo na środku */
+    .header-logo {
+        height: 25px;
+    }
+    
+    /* Jeszcze bardziej zmniejszam przycisk */
+    .header-button .btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+/* --- Hero Section Styles --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #e9f0f7; /* Kolor tła jako warstwa zapasowa */
+    background-image: url('images/hero-background.png');
+    background-repeat: no-repeat;
+    background-size: cover; /* Tło wypełni cały kontener */
+    background-position: center; /* Wyśrodkowanie tła */
+}
+
+.hero .container {
+    width: 100%;
+    position: relative;
+    text-align: left; /* Cała zawartość wyrównana do lewej */
+}
+
+/* Główny tytuł - "Your guide to" */
+.main-title {
+    font-size: 56px;
+    color: #2a3a7e; /* Przywrócenie oryginalnego koloru */
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    margin-left: 120px; /* Dodanie lewego marginesu około szerokości logo */
+    /* Wyrównanie do lewej - domyślne */
+}
+
+/* Kontener z drugim tytułem, akapitem i przyciskami */
+.hero-content {
+    margin-left: 25%; /* Przesunięcie w prawo o 1/4 - dostosuj jeśli potrzeba */
+    max-width: 75%; /* Maksymalna szerokość */
+    text-align: left; /* Tekst wyrównany do lewej */
+}
+
+/* Podtytuł - "Every Summit" */
+.subtitle {
+    font-size: 72px; /* Większy rozmiar czcionki */
+    color: #2a3a7e; /* Przywrócenie oryginalnego koloru */
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+/* Akapit w kontenerze hero-content */
+.hero-content p {
+    font-size: 22px;
+    line-height: 1.5;
+    color: #6c757d; /* Szary kolor */
+    margin-bottom: 40px;
+    max-width: 75%; /* Ograniczenie szerokości akapitu */
+}
+
+/* Przyciski app store i google play */
+.app-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-end; /* Wyrównanie do prawej */
+    max-width: 75%; /* Ta sama maksymalna szerokość co akapit */
+}
+
+.app-buttons a img {
+    height: 45px; /* Wysokość przycisków */
+    width: auto;
+    display: block;
+}
+
+/* --- Responsywność dla sekcji Hero (Mobile) --- */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100vh; /* Ustawiamy pełną wysokość ekranu dla mobile */
+        display: flex;
+        align-items: center;
+        padding-top: 0; /* Usuwamy padding, aby header nachodził na sekcję hero */
+    }
+
+    .hero .container {
+        padding-top: 40px; /* Dodajemy padding, aby treść nie była zasłaniana przez header */
+        padding-bottom: 0;
+        text-align: center; /* Na mobile wszystko wyśrodkowane */
+    }
+
+    .main-title {
+        font-size: 38px;
+        text-align: center; /* Centrowanie na mobile */
+        margin-left: 0; /* Reset marginesu na mobile */
+        margin-top: 20px; /* Dodatkowy margines od góry */
+    }
+
+    .hero-content {
+        margin-left: 0; /* Bez przesunięcia na mobile */
+        max-width: 100%; /* Pełna szerokość */
+        text-align: center; /* Centrowanie na mobile */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subtitle {
+        font-size: 48px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+        max-width: 90%; /* Lekko ograniczona szerokość dla lepszej czytelności */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .app-buttons {
+        justify-content: center; /* Przyciski wyśrodkowane na mobile */
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .app-buttons a img {
+        height: 40px;
+    }
+}
+
+/* --- Description Section Styles --- */
+.description {
+    padding: 60px 0; /* Odstęp góra/dół */
+}
+
+.description h2 {
+    text-align: center; /* Wyśrodkowanie nagłówka */
+    font-size: 32px; /* Rozmiar nagłówka sekcji - dostosuj */
+    margin-bottom: 40px; /* Odstęp pod nagłówkiem */
+}
+
+.description p {
+    /* Style dla głównego akapitu w sekcji, jeśli jest */
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center; /* Można usunąć, jeśli tekst ma być do lewej */
+    max-width: 800px; /* Opcjonalne ograniczenie szerokości tekstu */
+    margin: 0 auto; /* Centrowanie, jeśli max-width jest ustawione */
+}
+
+/* --- Footer Styles --- */
+footer {
+    padding: 30px 0; /* Odstęp góra/dół */
+    background-color: #f1f1f1; /* Jasnoszare tło stopki */
+    margin-top: 60px; /* Odstęp od sekcji powyżej */
+}
+
+footer p {
+    text-align: center; /* Wyśrodkowanie tekstu w stopce */
+    font-size: 14px; /* Mniejsza czcionka */
+    color: #666; /* Ciemnoszary kolor tekstu */
+}
+
+/* --- Features Section Styles --- */
+.features {
+    padding: 80px 0;
+    position: relative;
+    background-color: #fff;
+}
+
+.features-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Kontener obrazka */
+.features-image {
+    flex: 0 0 45%; /* Zajmuje około 45% szerokości */
+    position: relative;
+}
+
+.features-image img {
+    max-width: 80%; /* Zmniejszono z 100% do 80% - obrazek zajmuje 80% kontenera */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Wyśrodkowanie obrazka w kontenerze */
+}
+
+/* Kontener treści */
+.features-content {
+    flex: 0 0 55%; /* Zajmuje około 55% szerokości */
+    padding: 20px 0;
+}
+
+.features-content h2 {
+    color: #2a3a7e; /* Ten sam kolor co nagłówki w hero */
+    font-size: 42px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.features-content > p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #6c757d;
+    margin-bottom: 40px;
+}
+
+/* Style dla listy cech */
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.feature-item h3 {
+    color: #2a3a7e;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #6c757d;
+}
+
+/* Responsywność dla features */
+@media (max-width: 768px) {
+    .features-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .features-image, .features-content {
+        flex: 0 0 100%;
+    }
+    
+    .features-image {
+        max-width: 80%;
+        margin: 0 auto 30px;
+    }
+    
+    .features-content h2 {
+        font-size: 32px;
+    }
+    
+    .feature-item {
+        text-align: center;
+    }
+}
+
+/* --- About Us Section Styles --- */
+.about-us {
+    background-color: #2a3a7e; /* Granatowy kolor tła, taki sam jak h1 */
+    color: white; /* Biały tekst na granatowym tle */
+    padding: 60px 0; /* Odstęp góra/dół */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    position: relative; /* Dla pozycjonowania kontenera śniegu */
+    overflow: hidden; /* Ukrycie śniegu poza kontenerem */
+}
+
+/* Kontener na śnieg */
+.snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Aby śnieg nie przeszkadzał w interakcji z sekcją */
+    z-index: 1;
+}
+
+/* Styl dla płatków śniegu (pikseli) */
+.snowflake {
+    position: absolute;
+    top: -10px; /* Zaczyna trochę poza kontenerem */
+    background-color: white;
+    border-radius: 0; /* Kwadratowy kształt dla efektu piksela */
+    animation: snowfall linear forwards; /* Animacja opadania */
+}
+
+/* Animacja opadania */
+@keyframes snowfall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(calc(100vh + 10px)) rotate(360deg);
+    }
+}
+
+/* Zwiększenie z-indexu dla zawartości, aby była ponad śniegiem */
+.about-us .container {
+    position: relative;
+    z-index: 2;
+}
+
+.about-us h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px; /* Ograniczenie szerokości tekstu */
+    margin: 0 auto; /* Wycentrowanie */
+    opacity: 0.9; /* Lekka przezroczystość tekstu dla lepszego kontrastu */
+}
+
+/* Responsywność dla sekcji About Us */
+@media (max-width: 768px) {
+    .about-us {
+        padding: 40px 0;
+    }
+    
+    .about-us h2 {
+        font-size: 30px;
+    }
+    
+    .about-us p {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+}
+
+/* --- Contact Section Styles --- */
+.contact {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    text-align: center; /* Wyśrodkowanie całej zawartości sekcji */
+    overflow-x: hidden; /* Zapobiegam przewijaniu w poziomie */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.contact .container {
+    max-width: 1140px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+    overflow: hidden; /* Zapobiegam "wylewaniu się" treści */
+    box-sizing: border-box; /* Padding wliczany do szerokości */
+    width: 100%;
+}
+
+.contact h2 {
+    text-align: center;
+    color: #2a3a7e;
+    font-size: 36px;
+    margin-bottom: 50px;
+    width: 100%;
+    display: inline-block; /* Zmiana na inline-block dla lepszego centrowania */
+    position: relative;
+    padding-bottom: 15px; /* Przestrzeń dla ozdobnej linii pod tekstem */
+}
+
+/* Dodanie ozdobnej linii pod nagłówkiem */
+.contact h2:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #2a3a7e;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Kontener dla pełnej szerokości (Patronite) */
+.contact-item.full-width {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 30px 0;
+    padding: 25px; /* Zmniejszony padding */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Zapobiegam "wylewaniu się" treści */
+}
+
+/* Dodatkowe style dla zawartości kontenera Patronite */
+.contact-item.full-width h3, 
+.contact-item.full-width p,
+.contact-item.full-width a {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Zmniejszony odstęp */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-wrapper.two-columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-wrapper.two-columns .contact-item {
+    flex: 1;
+    max-width: calc(50% - 10px); /* Zmniejszony odstęp */
+    box-sizing: border-box;
+}
+
+.contact-item {
+    padding: 25px; /* Zmniejszony padding */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.contact-item h3 {
+    color: #2a3a7e;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Support section */
+.support-section p {
+    margin-bottom: 20px;
+    max-width: 80%; /* Zmniejszam maksymalną szerokość */
+    color: #6c757d;
+    margin-left: auto; /* Centrowanie tekstu */
+    margin-right: auto; /* Centrowanie tekstu */
+    text-align: center; /* Wyraźnie określam centrowanie tekstu */
+}
+
+.contact-item.full-width h3 {
+    margin-bottom: 15px; /* Mniejszy odstęp pod nagłówkiem */
+    max-width: 100%; /* Pełna szerokość dla nagłówka */
+}
+
+/* Email styling */
+.email-link {
+    font-size: 18px;
+    color: #2a3a7e;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.email-link:hover {
+    color: #4a5bae;
+}
+
+/* Social media links */
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    color: #2a3a7e;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.social-link:hover {
+    opacity: 0.8;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.patronite-btn {
+    display: inline-block;
+    background-color: #2a3a7e;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    max-width: 90%; /* Dodaję maksymalną szerokość */
+    white-space: nowrap; /* Zapobiegam zawijaniu się tekstu */
+}
+
+.patronite-btn:hover {
+    background-color: #1e2b5e;
+}
+
+/* Responsive styles for contact section */
+@media (max-width: 768px) {
+    .contact {
+        padding: 40px 0; /* Zmniejszam padding sekcji */
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .contact .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 10px; /* Zmniejszam padding */
+        padding-right: 10px; /* Zmniejszam padding */
+        box-sizing: border-box;
+    }
+    
+    .contact h2 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+    
+    .contact-wrapper.two-columns {
+        flex-direction: column;
+        gap: 15px; /* Zmniejszam odstęp */
+        width: 100%;
+    }
+    
+    .contact-wrapper.two-columns .contact-item {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 15px;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+    }
+    
+    .contact-item {
+        padding: 20px 15px; /* Zmniejszam padding */
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .contact-item.full-width {
+        padding: 20px 15px; /* Zmniejszam padding */
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .support-section p {
+        max-width: 100%; /* Na mobilnych urządzeniach pełna szerokość */
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .patronite-btn {
+        padding: 10px 15px; /* Zmniejszam padding */
+        font-size: 14px;
+        max-width: 100%; /* Pozwalam na zawijanie tekstu */
+        white-space: normal; /* Pozwalam na zawijanie tekstu */
+    }
+}
+
+/* Dodatkowe poprawki dla małych urządzeń mobilnych */
+@media (max-width: 480px) {
+    .contact .container {
+        padding-left: 5px; /* Jeszcze mniejszy padding na bardzo małych ekranach */
+        padding-right: 5px;
+    }
+    
+    .contact-item.full-width, 
+    .contact-wrapper.two-columns .contact-item {
+        padding: 15px 10px; /* Minimalne paddingi dla kontenerów */
+        margin-bottom: 10px;
+    }
+    
+    .patronite-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .email-link {
+        font-size: 16px;
+        word-break: break-all; /* Pozwalamy na łamanie długich adresów email */
+    }
+    
+    .social-links {
+        gap: 10px;
+    }
+}
+
+/* --- Splash Screen Styles --- */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeout 1s forwards 1s; /* Opóźnienie 1s, trwanie 1s */
+}
+
+.splash-logo {
+    width: auto;
+    height: 150px; /* Wysokość logo */
+    animation: logotransform 1.5s forwards 1s; /* Opóźnienie 1s, trwanie 1.5s */
+    position: relative;
+    z-index: 10000; /* Wyższy z-index niż tło splash screena */
+}
+
+/* Ukryj logo w headerze na początku - pokaże się po animacji */
+.header-logo {
+    opacity: 0;
+    height: 35px; /* Zwiększona wysokość logo w headerze */
+    width: auto;
+    animation: showHeaderLogo 0.5s forwards 2.5s; /* Pokaż logo w headerze po zakończeniu animacji */
+}
+
+/* Kontener dla logo w headerze - na środku */
+.logo-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden; /* Ukryj element po animacji */
+    }
+}
+
+@keyframes logotransform {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(0, calc(-50vh + 40px)) scale(0.23); /* Dostosowana skala dla większego logo */
+    }
+}
+
+@keyframes showHeaderLogo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+} 
